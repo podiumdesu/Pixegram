@@ -1,0 +1,10 @@
+*/node_modules
+.DS_Store
+/upload
+/public
+*/package-lock.json
+*/dist
+*/.env*
+*/.idea
+*/server.config.js
+*/useless
