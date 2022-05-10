@@ -44,14 +44,17 @@ input:focus{
 /* set modal height 100% */
 .ant-modal, .ant-modal-content {
 	/* height: 80vh; */
-	/* width: 100%; */
+	width: 100%;
 	/* height: 80vh; */
 	margin: 0;
 	top: 0;
 }
-   
-.ant-modal-body {
+
+.ant-modal-wrap {
 	/* height: calc(100vh - 180px); */
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 }
