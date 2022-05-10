@@ -7,12 +7,15 @@ const { Content, Sider } = Layout;
 const { Panel } = Collapse;
 
 import Banner from '../layout/Banner/index'
-import testNft from '../sample/test'
+
 import {
     CaretRightOutlined
 } from '@ant-design/icons';
 
 import NftCard from '../components/NftCard/index'
+
+import { initContract } from '../contracts/index'
+import formatData from '../utils/formatData'
 
 import serverConfig from '../../server.config';
 const server = serverConfig.server
@@ -78,17 +81,11 @@ const App = () => {
     useEffect(async () => {
         if (firstLoad) {
             setFirstLoad(false)
+            setInSearch(true)
+            const allNftData = await initContract.getAllInfo()
+            const formatedData = await Promise.all(allNftData.map(async i => await formatData(i)))
+            setSearchedList(formatedData)
             setInSearch(false)
-            setSearchedList(testNft)
-            // axios.post(`${server}${searchNft}`, {
-            //     searchInfo: {
-            //         nftName: ""
-            //     }
-            // })
-            //     .then(res => {
-            //         setInSearch(false)
-            //         setSearchedList(res.data)
-            //     })
         }
 
     })
@@ -139,24 +136,6 @@ const App = () => {
                                         <Radio.Button style={{marginBottom: "5px"}} value="type:data">Course</Radio.Button>
                                     </Radio.Group>
                                 </Panel>
-                                {/* <Panel header="出售权益" key="2"
-                                    className='font-fangsong'
-                                    style={{
-                                        fontSize: "18px",
-                                        textAlign: "center",
-                                        borderBottom: "1px solid rgb(229, 232, 235)"
-                                    }}
-                                >
-                                    <Radio.Group
-                                        className='px-10 py-4 my-0 w-full flex-wrap'
-                                        value={size}
-                                        onChange={handleSizeChange}
-                                        style={radioGroupSty}
-                                    >
-                                        <Radio.Button value="changeOwner:true">所有权</Radio.Button>
-                                        <Radio.Button value="changeOwner:false">使用权</Radio.Button>
-                                    </Radio.Group>
-                                </Panel> */}
                             </Collapse>
                         )
                     }
@@ -181,7 +160,7 @@ const App = () => {
                                                 }}>
                                                     {searchedList.length}
                                                 </span>
-                                                &nbsp;个资产!</p>
+                                                &nbsp;tokens</p>
                                             <div className="grid grid-cols-3 grid-flow-row gap-4 place-items-center" style={{ padding: 24, minHeight: "100%", background: "#fff" }}>
                                                 {
                                                     searchedList.map((i, idx) => (
@@ -195,7 +174,7 @@ const App = () => {
                                             className='mt-32'
                                             status="404"
                                             title="NOT FOUND"
-                                            subTitle="Citamon数字交易平台暂时没有您想要的数字资产哦"
+                                            subTitle="Not found anything in PIXEGRAM"
                                         />
                                     )
                                 )

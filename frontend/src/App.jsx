@@ -7,6 +7,7 @@ import './App.css'
 
 import randomNum from './utils/getRandom'
 import getHotItemsIdx from './utils/getHotItems'
+import formatData from './utils/formatData'
 
 import { initContract } from './contracts/index'
 
@@ -15,8 +16,6 @@ import Footer from './layout/Footer/index'
 
 import NftCard from './components/NftCard/index'
 import TextBanner from './components/TextBanner/index'
-
-import testNft from './sample/test'
 
 const URL_ADDR = import.meta.env.VITE_APP_URL
 
@@ -41,20 +40,22 @@ const App = () => {
 
     if (allNftList == false) {
 
-      const testArray = testNft
-      setAllNftList(testArray)
-      const allLength = testArray.length
+      const allNftData = await initContract.getAllInfo()
+      setAllNftList(true)
+      const formatedData = await Promise.all(allNftData.map(async i => await formatData(i)))
+      setAllNftList(formatedData)
+      const allLength = formatedData.length
       const randomIdx = randomNum(allLength, 7)
       const selectedOne = randomIdx.pop()
-      setBannerNft(testArray[selectedOne])
+      setBannerNft(formatedData[selectedOne])
       const randomList = []
-      randomIdx.map((i, idx) => {
-        randomList.push(testArray[i])
+      randomIdx.map(i => {
+        randomList.push(formatedData[i])
       })
       setShowNftList(randomList)
-      const getHotItems = getHotItemsIdx(testArray, 6)
+      const getHotItems = getHotItemsIdx(formatedData, 6)
       setHotNftList(getHotItems)
-      console.log(getHotItems)
+
     }
   })
 
