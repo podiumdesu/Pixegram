@@ -49,7 +49,7 @@ const App = (props) => {
 
             setLoading(false)
 
-            const tokenIPFSInfo = (await axios.get(`http://localhost:8080/ipfs/${onChainData.tokenURI}`)).data
+            const tokenIPFSInfo = (await axios.get(`https://ipfs.infura.io/ipfs/${onChainData.tokenURI}`)).data
 
             const info = { ...tokenIPFSInfo }
 

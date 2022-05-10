@@ -13,7 +13,11 @@ const URL_ADDR = import.meta.env.VITE_APP_URL
 import { initContract } from '../contracts/index'
 import axios from 'axios';
 
-const IPFSClient = window.IpfsHttpClient.create({ host: 'localhost', port: 5001 })
+const IPFSClient = window.IpfsHttpClient.create({ 
+    host: 'ipfs.infura.io', 
+    port: 5001,
+    protocol: 'https'
+})
 
 const New = () => {
     const [form] = Form.useForm();
@@ -25,7 +29,7 @@ const New = () => {
         const uploadJson = { ...values, picCover: fileUrl }
 
         const { path } = await IPFSClient.add(Buffer.from(JSON.stringify(uploadJson)))
-
+        console.log(path)
         const res = await initContract.initNft(path)
 
         if (res.hash) {
@@ -34,7 +38,7 @@ const New = () => {
 
         await setTimeout(() => {}, 2000)
         
-        const { data } = await axios.get(`http://localhost:8080/ipfs/${path}`)
+        const { data } = await axios.get(`https://ipfs.infura.io/ipfs/${path}`)
         // console.log(data)
 
         window.location.href=`${URL_ADDR}/detail/${12}`
@@ -44,7 +48,7 @@ const New = () => {
         const file = e.target.files[0]
         try {
             const added = await IPFSClient.add(file)
-            const url = `http://localhost:8080/ipfs/${added.path}`
+            const url = `https://ipfs.infura.io/ipfs/${added.path}`
             updateFileUrl(url)
         } catch (error) {
             console.log('Error uploading file: ', error)
