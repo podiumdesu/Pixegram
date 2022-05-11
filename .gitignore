@@ -8,3 +8,7 @@
 */.idea
 */server.config.js
 */useless
+*/cache
+*/.deps
+*/package-lock.json
+
