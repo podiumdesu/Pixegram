@@ -17,9 +17,6 @@ import NftCard from '../components/NftCard/index'
 import { initContract } from '../contracts/index'
 import formatData from '../utils/formatData'
 
-import serverConfig from '../../server.config';
-const server = serverConfig.server
-
 const radioGroupSty = {
     background: "rgb(251, 253, 255)",
     padding: ".5rem .5rem",
@@ -43,22 +40,10 @@ const App = () => {
         const margin = !collapsed ? 80 : 270
         setLeftMargin(margin)
     }
-    const searchNft = serverConfig.interface['searchNft']
 
     const searchText = val => {
         setInSearch(true)
-        axios.post(`${server}${searchNft}`, {
-            searchInfo: {
-                nftName: val
-            }
-        })
-            .then(res => {
-                setInSearch(false)
-                setSearchedList(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+
     }
 
     const handleSizeChange = e => {
@@ -68,14 +53,6 @@ const App = () => {
         const v = value[1]
         const info = {}
         info[k] = (v == "true" ? true : v)
-        axios.post(`${server}${searchNft}`, {
-            searchInfo: info
-        })
-            .then(res => {
-                setInSearch(false)
-                setSearchedList(res.data)
-
-            })
     };
 
     useEffect(async () => {
