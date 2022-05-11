@@ -8,10 +8,6 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 import CustomButton from './CustomButton';
 
-import serverConfig from '../../../server.config'
-const server = serverConfig.server
-const { onSale, downSale } = serverConfig.interface
-
 const App = (props) => {
     const { saleFlag, callback, id } = props
     const [visible, setVisible] = useState(false)

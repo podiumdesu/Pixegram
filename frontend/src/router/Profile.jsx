@@ -7,9 +7,6 @@ import { Menu } from 'antd';
 
 import { Routes, Route, Link, useParams } from 'react-router-dom'
 
-import serverConfig from '../../server.config'
-const server = serverConfig.server
-const { checkMine } = serverConfig.interface
 
 import { useWeb3React } from '@web3-react/core'
 import { injected } from '../utils/wallet/connector'
@@ -32,12 +29,7 @@ const App = () => {
             onSale: (e.key == "onSale" ? true : false)
         }
         if (e.key == "all") delete parameter.onSale
-        axios.post(`${server}${checkMine}`, parameter)
-            .then(res => {
-                setDisplayList(res.data)
-                console.log(res.data)
-                // setNftList(res.data)
-            })
+        //         setDisplayList(res.data)
     }
 
     useEffect(() => {
@@ -48,16 +40,8 @@ const App = () => {
                 console.log(ex)
             }
         }
-        // TODO Add promise
-        if (!reqFlag) {
-            axios.post(`${server}${checkMine}`, {
-                address: "0xe65526243b6141d98edb1ffe00055212"
-            })
-                .then(res => {
-                    setReqFlag(true)
-                    setDisplayList(res.data)
-                })
-        }
+        // setReqFlag(true)
+        // setDisplayList(res.data)
     })
     const clickMenu = e => {
         console.log(e.key)
