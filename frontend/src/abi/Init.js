@@ -73,6 +73,30 @@ export default [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			}
+		],
+		"name": "hitTheStore",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -205,6 +229,49 @@ export default [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "takeDown",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -332,6 +399,11 @@ export default [
 								"internalType": "uint256",
 								"name": "price",
 								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "onSale",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct Pixegram.PemInfo",
@@ -427,6 +499,11 @@ export default [
 								"internalType": "uint256",
 								"name": "price",
 								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "onSale",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct Pixegram.PemInfo",
@@ -522,6 +599,11 @@ export default [
 				"internalType": "uint256",
 				"name": "price",
 				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "onSale",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
