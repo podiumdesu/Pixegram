@@ -38,10 +38,9 @@ const New = () => {
 
         await setTimeout(() => {}, 2000)
         
-        const { data } = await axios.get(`https://ipfs.infura.io/ipfs/${path}`)
-        // console.log(data)
+        const currentId = await initContract.getItemNum()
 
-        window.location.href=`${URL_ADDR}/detail/${12}`
+        window.location.href=`${URL_ADDR}/detail/${parseInt(currentId, 16)+1}`
     }
 
     async function onChange(e) {
