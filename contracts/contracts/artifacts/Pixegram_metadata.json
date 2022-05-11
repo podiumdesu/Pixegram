@@ -134,6 +134,11 @@
 						"internalType": "uint256",
 						"name": "price",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "onSale",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -237,6 +242,11 @@
 										"internalType": "uint256",
 										"name": "price",
 										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "onSale",
+										"type": "bool"
 									}
 								],
 								"internalType": "struct Pixegram.PemInfo",
@@ -332,6 +342,11 @@
 										"internalType": "uint256",
 										"name": "price",
 										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "onSale",
+										"type": "bool"
 									}
 								],
 								"internalType": "struct Pixegram.PemInfo",
@@ -345,6 +360,30 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "hitTheStore",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -550,6 +589,25 @@
 						"type": "uint256"
 					}
 				],
+				"name": "takeDown",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
 				"name": "tokenURI",
 				"outputs": [
 					{
@@ -559,6 +617,30 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -741,11 +823,11 @@
 			]
 		},
 		"contracts/Init.sol": {
-			"keccak256": "0xe7077ce30e039df63417226cf2f2ec9a1f74c7cdb99166adc271ac006c765083",
+			"keccak256": "0xe515c5e402856213d1477d41c70e88fdaaf9c794164279475587ba353392fc83",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://0bd8d17661a75d44464b5f2147e42cce389c35d779618e845a17da13fb5e541d",
-				"dweb:/ipfs/QmTFjifm3Ktr3dGiQnNuFDeSqZa2iBTFwNytBtDz3YWGVJ"
+				"bzz-raw://c6f68e68c1ca5c82a9490ed34b19d3114f0be531aecac54bb0ed09e4b48badc2",
+				"dweb:/ipfs/QmVz9nRNa5CcuCm2h9d5rVTkeKopEstYE8UtssAwWa3wmN"
 			]
 		}
 	},
