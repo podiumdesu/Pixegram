@@ -54,17 +54,17 @@ const App = () => {
                     <div>
                         <div className='my-16 grid place-items-center'>
                             <div className='my-20 grid place-items-center'>
-                                <IconClip icon="" text={`钱包地址：${account}`} />
+                                <IconClip icon="" text={`Address：${account}`} />
                             </div>
                             <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
                                 <Menu.Item key="all" onClick={clickMenu}>
                                     <Link to={`all/${address}`}>
-                                        <IconClip icon="block" small smallGap text="已拥有" />
+                                        <IconClip icon="block" small smallGap text="In your wallet (NOT FINISHED)" />
                                     </Link>
                                 </Menu.Item>
                                 <Menu.Item key="onSale" onClick={clickMenu}>
                                     <Link to={`onSale/${address}`}>
-                                        <IconClip icon="shopCart" small smallGap text="已上架" />
+                                        <IconClip icon="shopCart" small smallGap text="On the market (NOT FINISHED)" />
                                     </Link>
                                 </Menu.Item>
                             </Menu>

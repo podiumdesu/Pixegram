@@ -92,7 +92,7 @@ const App = () => {
                                 ghost
                                 expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
                             >
-                                <Panel header="Types" key="1"
+                                <Panel header="Types(Not finished)" key="1"
                                     className='font-fangsong'
                                     style={{
                                         fontSize: "18px",
